@@ -1,18 +1,76 @@
 <html>
 	<head>
+		<title>GeeMail</title>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
-    <script>
-      window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
-    </script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	
+	<script language="javascript" type="text/javascript">
+		
+		$(document).ready(function() {
+			displayMail();
+			autoRetrieve();
+   			 $(".msgContent").hide();
+		});
+		
+		function toggleThis (t) {
+				$(t).next().slideToggle();
+			}
+		loadGeeMails();
+		var inboxCount = window.geemails.length;
+		
+		function updateInboxCount() {
+			document.getElementById("mailCounter").innerHTML = inboxCount;
+		}
+		
+		function displayMail() {
+			for(key in window.geemails){
+				addMsg( window.geemails[key] );
+			}
+		}
+	
+		function autoRetrieve() {
+			var newMsg = getNewMessage();
+			inboxCount++;
+			addMsg( newMsg );
+			window.geemails.push( newMsg );
+			setTimeout( 'autoRetrieve()', 15000 );
+		}
+		
+		function addMsg( m ) {
+		    var div1 = document.createElement('div');
+		    div1.className = 'toggleDiv';
+		    div1.onclick = function(){toggleThis( this )};
+		    div1.innerHTML = '<div class=\"msgList\"><li>' + m.sender + '</li><li>' + m.subject + '</li><li>' + m.date + '</li></div>';
+		    document.getElementById('messages').appendChild(div1);
+		    
+			var div2 = document.createElement('div');
+		    div2.className = 'msgContent';
+		    div2.style.display = 'none';
+		    div2.innerHTML = m.body + '</div>';
+		    document.getElementById('messages').appendChild(div2);
+		    updateInboxCount();		    
+		}
+		
+	</script>
+
 	</head>
 	<body>
-		<div class="container" id="main">
-			Build Me!
+		
+		<div class="header">
+			<h1>GeeMail</h1>
 		</div>
+		<div class="inbox"><h4>Inbox (<span id="mailCounter"></span>)</h4></div>				
+			<div class="messagesHeader">
+				<ul>
+					<li>Sender</li>
+					<li>Subject</li>
+					<li>Date</li>
+				</ul>
+			</div>
+		</div>
+			
+		<div class="geemails" id="messages"></div>
+				
 	</body>
 </html>

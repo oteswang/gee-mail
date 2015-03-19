@@ -1,0 +1,97 @@
+body {
+    width: auto;
+    height: auto;
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Century Gothic;
+	}
+
+.header {	
+	background-color: #000000;
+	background-image:url('http://ak.picdn.net/shutterstock/videos/5228180/preview/stock-footage-snow-falls-continuously-against-a-slowly-rotating-deep-red-radial-gradient-background-in-this.jpg');
+	color:#ff0000;
+	font-size: 30px;
+	font-weight: bold;	
+	text-align: center;
+	position: relative;
+	top: 10px;
+	padding: 0 0 0 0;
+	}
+
+.inbox {
+    color: #2989d8;
+    font-size: 18;
+	}
+
+#inboxTotal {
+    font-weight: bold;
+    color: #2989d8;
+	}
+
+.geemails {
+    color: #000000;
+    font-size: 16;
+    font-weight: normal;
+    font-family: Century Gothic;
+    border: 50 solid #2989d8;
+    overflow: scroll;
+    height: 50%;
+    margin: auto;
+	}
+
+.navigation {
+    margin: 0;
+    line-height: 2em;
+    font-weight: 400;
+	}
+
+.messagesHeader {
+    font-size: 18;
+    font-weight: bolder;
+    background-color: none;
+    color: #299a0b;
+	text-align: left;
+	}
+
+.geemails .messagesHeader ul:first-child {
+    margin: 0 0 0 0;
+	}
+	
+.messagesHeader li{	    
+    padding: 10 0 10 0;
+	margin: 10 100 10 10;
+	list-style-type: none;
+    width: 10em;
+	display: inline-table;	
+	}
+
+.toggleDiv {
+    background-color:none;
+    color: #ffffff;
+    padding: 0;    
+    border-top: 1px solid #299a0b;
+    font-weight: bold;
+    margin: 0;
+	}
+
+.msgList li.first{
+    list-style-type: none;
+    display: inline;
+    color: #2989d8;
+	}
+	
+.msgList li{
+    background-color: #ffffff;    
+	margin: 10 30 15 0;
+    overflow: scroll;
+    list-style-type: none;
+	width: 18em;
+    display: inline-table;
+    color: #2989d8;
+	}
+
+.memorable {
+    font-weight: bolder;
+    font-size: 20;
+	}
